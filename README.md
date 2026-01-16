@@ -3,7 +3,7 @@ This project uses Packer to create a Windows VM in VMware vSphere and configures
 
 This speeds up the process of creating highly customized Master / Golden Images for VDI puposes.
 
-## Setup VM
+## Setup Automation VM
 -  Install Ubuntu server
 -  Install Packer and Ansible
 -  Install `sudo apt-get install -y genisoimage` which is needed for the Packer vSphere Plugin to create VMs
