@@ -1,0 +1,2 @@
+packer validate -var-file='auto.pkrvars.hcl' .
+packer build -var-file='auto.pkrvars.hcl' .

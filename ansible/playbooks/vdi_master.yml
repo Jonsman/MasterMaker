@@ -1,0 +1,47 @@
+- name: VDI Master Image Installs
+  hosts: all
+  gather_facts: no
+
+  vars:
+    choco_packages:
+      - 7zip
+      - notepadplusplus
+
+    windows_features:
+      - NetFx3
+
+    run_windows_updates: true
+
+    windows_updates:
+      - SecurityUpdates
+      - CriticalUpdates
+      - UpdateRollups
+
+  tasks:
+    - name: Install Chocolatey if missing
+      chocolatey.chocolatey.win_chocolatey:
+        name: chocolatey
+        state: present
+
+    - name: Ensure Chocolatey packages are installed
+      chocolatey.chocolatey.win_chocolatey:
+        name: "{{ choco_packages }}"
+        state: present
+      register: choco_result
+
+    - name: Install Windows Client Features
+      ansible.windows.win_optional_feature:
+        name: "{{ windows_features }}"
+        state: present
+      become: true
+      become_method: runas
+      become_user: System
+      register: optfeat
+
+    - name: Install Windows security and critical updates
+      ansible.windows.win_updates:
+        category_names: "{{windows_updates}}"
+        state: installed
+        reboot: true
+      register: wu_result
+      when: run_windows_updates

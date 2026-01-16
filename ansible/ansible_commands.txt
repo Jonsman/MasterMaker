@@ -1,0 +1,3 @@
+ansible-playbook playbooks/vdi_master.yml --syntax-check
+ansible-playbook playbooks/vdi_master.yml --check
+ansible-lint playbooks/vdi_master.yml

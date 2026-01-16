@@ -1,0 +1,7 @@
+auto.pkrvars.hcl
+ps_commands.txt
+
+powershell_scripts*
+backups*
+
+*.bak
