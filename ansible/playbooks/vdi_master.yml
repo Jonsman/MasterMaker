@@ -6,11 +6,15 @@
     choco_packages:
       - 7zip
       - notepadplusplus
+      - greenshot
+      - putty
+      - Firefox
+      - google-chrome-for-enterprise
 
     windows_features:
       - NetFx3
 
-    run_windows_updates: true
+    run_windows_updates: false
 
     windows_updates:
       - SecurityUpdates
@@ -45,3 +49,14 @@
         reboot: true
       register: wu_result
       when: run_windows_updates
+
+    - name: Allow RDP connections
+      ansible.windows.win_regedit:
+        path: HKLM:\System\CurrentControlSet\Control\Terminal Server
+        name: fDenyTSConnections
+        data: 0
+        type: dword
+
+    - name: Reboot Windows again after all the updates
+      ansible.windows.win_reboot:
+        reboot_timeout: 3600
