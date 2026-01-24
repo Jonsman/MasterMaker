@@ -6,12 +6,10 @@ This speeds up the process of creating highly customized Master / Golden Images 
 ## Setup Automation VM
 -  Install Ubuntu server
 -  Install Packer and Ansible
+    -  https://developer.hashicorp.com/packer/install#linux
+    -  https://docs.ansible.com/projects/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu
 -  Install `sudo apt-get install -y genisoimage` which is needed for the Packer vSphere Plugin to create VMs
 -  Clone repo to `/srv/`
-
-https://developer.hashicorp.com/packer/install#linux
-
-https://docs.ansible.com/projects/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu
 
 ## Create auto.pkrvars.hcl
 -   change directory `cd` to `/srv/vdi-master-automation/packer`
