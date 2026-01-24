@@ -16,7 +16,7 @@ https://docs.ansible.com/projects/ansible/latest/installation_guide/installation
 ## Create auto.pkrvars.hcl
 -   change directory `cd` to `/srv/vdi-master-automation/packer`
 -   use `auto.pkrvars.hcl.sample` to create `auto.pkrvars.hcl` with all needed variables
-    -   Windows ISO and VMware Tools files are needed on the datastore
+    -   Windows and VMware Tools ISOs are needed on the datastore
 
 ## Run
 -   change directory `cd` to `/srv/vdi-master-automation/packer` and run
